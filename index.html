@@ -1,22 +1,666 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amit Kumar Jena | Portfolio</title>
+
+<style>
+:root {
+    --bg: #080d1b;
+    --card: #121d32;
+    --blue: #55c8ff;
+    --purple: #9d83ff;
+    --white: #f3f6ff;
+    --muted: #aab7cd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.7;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: rgba(12,20,39,0.97);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #26344d;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 17px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+section {
+    padding: 85px 9%;
+    scroll-margin-top: 65px;
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+    radial-gradient(circle at 85% 30%, #243d68 0%, transparent 35%),
+    linear-gradient(120deg,#0b1428,#111c35);
+}
+
+.hero .intro {
+    color: var(--blue);
+    font-size: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(38px,6vw,65px);
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.gradient {
+    background: linear-gradient(90deg,var(--blue),var(--purple));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero h2 {
+    font-size: 23px;
+    color: #cbd8f0;
+}
+
+.hero p {
+    max-width: 720px;
+    color: var(--muted);
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    background: linear-gradient(90deg,#168ed5,#7864e9);
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    margin: 7px 8px 7px 0;
+    font-weight: 600;
+}
+
+.btn:hover {
+    opacity: .85;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 12px;
+    color: var(--blue);
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    padding: 25px;
+    border: 1px solid #293956;
+    border-radius: 13px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+}
+
+.card h3 {
+    color: var(--blue);
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.card ul {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.tag {
+    display: inline-block;
+    background: #203753;
+    color: #8bd9ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 5px 3px;
+    font-size: 12px;
+}
+
+.role {
+    color: var(--purple);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.project-number {
+    font-size: 30px;
+    color: var(--purple);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.timeline {
+    border-left: 2px solid var(--blue);
+    padding-left: 25px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: var(--blue);
+    border-radius: 50%;
+    position: absolute;
+    left: -32px;
+    top: 8px;
+}
+
+.contact a {
+    color: var(--blue);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact p {
+    margin: 12px 0;
+}
+
+footer {
+    text-align: center;
+    background: #10192c;
+    padding: 30px;
+    color: var(--muted);
+    border-top: 1px solid #293956;
+}
+
+@media(max-width:850px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav div:last-child {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px 8px;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Hello, I'm Amit Kumar Jena</h1>
-    <h2>Computer Science Student</h2>
-    <p>I am interested in Data Analytics,
-    Python and Artificial Intelligence.</p>
 
-    <h3>My Project</h3>
-    <p>Face Recognition Attendance System</p>
-    <p>Technologies: Python, OpenCV, IP Webcam</p>
+<nav>
+    <div class="logo">AMIT.</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <h3>Skills</h3>
-    <p>Python, AI, ML, SQL, Excel</p>
+<!-- HOME -->
 
-    <h3>GitHub</h3>
-    <a href="https://github.com/">My GitHub Profile</a>
+<section class="hero" id="home">
+
+    <p class="intro">WELCOME TO MY PORTFOLIO</p>
+
+    <h1>
+        Hi, I'm <span class="gradient">Amit Kumar Jena</span>
+    </h1>
+
+    <h2>
+        Aspiring Data Analyst & Software Engineer
+    </h2>
+
+    <p>
+        B.Tech in Computer Science and Engineering.
+        Dynamic and analytical Computer Science undergraduate
+        with a strong foundation in Python, Machine Learning,
+        and Data Analytics. Passionate about leveraging
+        data-driven insights and intelligent automation to
+        architect scalable, real-world technological solutions.
+    </p>
+
+    <div>
+        <a href="#projects" class="btn">Explore My Projects</a>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <p class="subtitle">Discover my background and interests</p>
+
+    <div class="card">
+
+        <p>
+        I am a dedicated Computer Science and Engineering
+        undergraduate at Balasore College of Engineering and
+        Technology (BCET), driven by an insatiable curiosity
+        for artificial intelligence, machine learning, and
+        predictive data analytics.
+
+        With hands-on experience in developing end-to-end
+        computer vision and data-centric applications,
+        I thrive on transforming complex datasets into
+        actionable intelligence.
+
+        My approach combines rigorous algorithmic
+        problem-solving with clean, maintainable
+        software engineering practices.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2 class="section-title">Technical Skills</h2>
+
+    <p class="subtitle">
+        Technologies and tools I work with
+    </p>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Programming Languages</h3>
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+        </div>
+
+        <div class="card">
+            <h3>Domains & Specializations</h3>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Computer Vision</span>
+        </div>
+
+        <div class="card">
+            <h3>Development Tools</h3>
+            <span class="tag">VS Code</span>
+            <span class="tag">Jupyter Notebook</span>
+            <span class="tag">Git</span>
+            <span class="tag">Git Bash</span>
+            <span class="tag">GitHub</span>
+        </div>
+
+        <div class="card">
+            <h3>Operating Systems</h3>
+            <span class="tag">Windows</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <p class="subtitle">
+        Academic projects and practical implementations
+    </p>
+
+    <div class="card-container">
+
+        <div class="card">
+
+            <div class="project-number">01</div>
+
+            <h3>BloodSync</h3>
+
+            <p class="role">Lead Developer | B.Tech Major Project</p>
+
+            <p>
+            Machine Learning-Driven Real-Time Blood Emergency
+            and Donor Matching Network.
+
+            Architected an intelligent emergency response
+            platform utilizing machine learning algorithms
+            to optimize real-time blood donor matching and
+            streamline critical medical logistics.
+            </p>
+
+            <br>
+
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Data Analytics</span>
+
+        </div>
+
+        <div class="card">
+
+            <div class="project-number">02</div>
+
+            <h3>Smart Employee Management System</h3>
+
+            <p class="role">
+            Collaborative Developer | B.Tech 6th-Semester Minor Project
+            </p>
+
+            <p>
+            Engineered an integrated workforce management
+            system incorporating predictive analytics to
+            evaluate employee performance metrics, track
+            attendance, and enhance organizational productivity.
+            </p>
+
+            <br>
+
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">Database</span>
+
+        </div>
+
+        <div class="card">
+
+            <div class="project-number">03</div>
+
+            <h3>Face Recognition Attendance System</h3>
+
+            <p class="role">Sole Developer</p>
+
+            <p>
+            Developed an automated, contactless attendance
+            tracking application powered by computer vision
+            and facial recognition algorithms, significantly
+            reducing manual administrative overhead.
+            </p>
+
+            <br>
+
+            <span class="tag">Python</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Computer Vision</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <h2 class="section-title">Internship Experience</h2>
+
+    <p class="subtitle">Professional training and experience</p>
+
+    <div class="card">
+
+        <h3>
+        Artificial Intelligence & Machine Learning Intern
+        </h3>
+
+        <p class="role">
+        Central Tool Room & Training Centre (CTTC),
+        Bhubaneswar | June 2026
+        </p>
+
+        <ul>
+            <li>
+            Acquired intensive, practical proficiency in
+            designing, training, and evaluating machine
+            learning models.
+            </li>
+
+            <li>
+            Applied Python-based data preprocessing and
+            analytical workflows to solve real-world
+            engineering challenges.
+            </li>
+        </ul>
+
+        <br>
+
+        <span class="tag">Artificial Intelligence</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Python</span>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2 class="section-title">Education</h2>
+
+    <p class="subtitle">My academic journey</p>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <h3>Bachelor of Technology (B.Tech)</h3>
+
+            <p>Computer Science and Engineering</p>
+
+            <p>
+            Balasore College of Engineering and Technology
+            (BCET), Balasore, Odisha
+            </p>
+
+            <p class="role">Currently Pursuing | Final Year</p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>Higher Secondary Education (Class XII)</h3>
+
+            <p>F.M. Junior College, Baripada, Odisha</p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>Primary & Secondary Schooling</h3>
+
+            <p>St. Mary's Convent School, Baripada, Odisha</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+
+<section id="certificates">
+
+    <h2 class="section-title">Certifications & Workshops</h2>
+
+    <p class="subtitle">
+        Continuous learning and professional development
+    </p>
+
+    <div class="card-container">
+
+        <div class="card">
+
+            <h3>AI Skill Passport</h3>
+
+            <p>
+            Offered by EY and Microsoft.
+            Certified in foundational and applied
+            Artificial Intelligence concepts.
+            </p>
+
+            <br>
+
+            <span class="tag">Artificial Intelligence</span>
+
+        </div>
+
+        <div class="card">
+
+            <h3>IoT Workshop</h3>
+
+            <p>
+            5-Day Intensive Workshop conducted by
+            National Institute of Technology (NIT),
+            Rourkela.
+            </p>
+
+            <br>
+
+            <span class="tag">Internet of Things</span>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Communication Skills & AI/ML Training</h3>
+
+            <p>
+            Training program conducted by Infosys.
+            </p>
+
+            <br>
+
+            <span class="tag">Communication Skills</span>
+            <span class="tag">AI/ML</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2 class="section-title">Let's Connect</h2>
+
+    <p class="subtitle">
+        Open to learning, collaboration and professional opportunities
+    </p>
+
+    <div class="card contact">
+
+        <p>
+        <strong>Email:</strong>
+        <a href="mailto:ak6105616@gmail.com">
+        ak6105616@gmail.com</a>
+        </p>
+
+        <p>
+        <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/amit-kumar-jena-858778291/"
+        target="_blank">
+        View LinkedIn Profile</a>
+        </p>
+
+        <p>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/Amitjena-sys"
+        target="_blank">
+        View GitHub Profile</a>
+        </p>
+
+        <br>
+
+        <a href="mailto:ak6105616@gmail.com" class="btn">
+        Contact Me
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 Amit Kumar Jena</p>
+
+    <p>
+    Aspiring Data Analyst | Software Engineer
+    </p>
+
+    <p>Designed & Developed with HTML and CSS</p>
+
+</footer>
+
 </body>
 </html>
